@@ -4,7 +4,9 @@ resource "aws_instance" "example_instance" {
   key_name = "ec2-key"
   subnet_id     = aws_subnet.caselet_subnet.id
   security_groups = [aws_security_group.caselet_security_group.name]
-  tags = {
-  Name = "${var.ec2_name}" 
-  }
+  tags = var.tags
 }
+
+# {
+#   Name = "${var.ec2_name}" 
+#   }
