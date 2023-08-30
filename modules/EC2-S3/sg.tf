@@ -24,4 +24,12 @@ resource "aws_security_group" "caselet_security_group" {
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
+#   output "security_group_id" {
+#       value = aws_security_group.caselet_security_group.id
+# }
 }
+# resource "aws_network_interface_sg_attachment" "sg_attachment" {
+#     security_group_id    = "${data.aws_security_group.caselet_security_group.id}"
+#     network_interface_id = "${aws_instance.dev.primary_network_interface_id}"
+# }
+

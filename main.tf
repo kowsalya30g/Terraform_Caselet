@@ -1,26 +1,30 @@
 terraform {
+  required_version = ">= 0.13.1"
+
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = ">= 4.9"
     }
-  } 
 }
-provider "aws" {
-  region     = "eu-central-1"
-  access_key = "XXXXXXXXXXXXXXXXXXXXXXX"
-  secret_key = "XXXXXXXXXXXXXXXXXXXXXXX"
+ backend "s3" {
+      bucket         = "case-bucket213-mars"
+      key            = "terraform.tfstate"
+      region         = "eu-central-1"
+      encrypt        = true
+        
+    }
 }
 
-# module "tags"{
-#     source = "./modules/Tags"
-#     tags = "${var.tags}"
-# }
+provider "aws" {
+  region     = "eu-central-1"
+}
 
 module "ec2" {
      source = "./modules/EC2-S3"
      
 }
+
 
 
 

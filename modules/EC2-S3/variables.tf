@@ -1,9 +1,7 @@
 variable "s3_bucketname"{
-    default = "case_bucket321"
+    default = "case-bucket213-mars"
 }
-# variable "ec2_name"{
-#     default = "Mars_Kowsalya_terraformAssignment"
-# }
+
 variable "tags" {
   description = "A map of tags to apply to resources"
   type        = map(string)
